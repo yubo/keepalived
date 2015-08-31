@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 2.6)
+
+IF(NOT DEFINED EXECUTABLE_OUTPUT_PATH)
+	SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
+ENDIF(NOT DEFINED EXECUTABLE_OUTPUT_PATH)
+
+IF(NOT DEFINED CARCH)
+	SET(CARCH x86_64)
+ENDIF(NOT DEFINED CARCH)
+
+add_subdirectory(lib)
+add_subdirectory(keepalived)
+add_subdirectory(genhash)
