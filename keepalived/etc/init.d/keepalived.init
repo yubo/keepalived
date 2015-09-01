@@ -12,7 +12,7 @@
 . /etc/rc.d/init.d/functions
 
 # Source configuration file (we set KEEPALIVED_OPTIONS there)
-. /etc/sysconfig/keepalived
+#. /etc/sysconfig/keepalived
 
 RETVAL=0
 

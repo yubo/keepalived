@@ -5,3 +5,16 @@ SET(SOURCES main.c daemon.c pidfile.c layer4.c smtp.c global_data.c global_parse
 
 ADD_EXECUTABLE(keepalived ${SOURCES})
 TARGET_LINK_LIBRARIES(keepalived vrrp ka ssl crypto crypt dl)
+
+INSTALL(TARGETS keepalived
+	RUNTIME DESTINATION sbin)
+
+
+INSTALL(FILES ../etc/keepalived/keepalived.master.conf 
+	DESTINATION /etc/keepalived RENAME keepalived.conf)
+
+INSTALL(FILES ../etc/keepalived/keepalived.slave.conf 
+	DESTINATION /etc/keepalived)
+
+INSTALL(PROGRAMS ../etc/init.d/keepalived.ubuntu.init
+	DESTINATION /etc/init.d RENAME keepalived)
