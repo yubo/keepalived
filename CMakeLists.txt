@@ -13,3 +13,11 @@ ENDIF(NOT DEFINED CARCH)
 add_subdirectory(lib)
 add_subdirectory(keepalived)
 add_subdirectory(genhash)
+
+INSTALL(FILES keepalived/etc/keepalived/keepalived.master.conf 
+	keepalived/etc/keepalived/keepalived.slave.conf 
+	DESTINATION /etc/keepalived)
+
+INSTALL(PROGRAMS keepalived/etc/init.d/keepalived.ubuntu.init
+	DESTINATION /etc/init.d RENAME keepalived
+	PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
