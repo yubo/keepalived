@@ -14,9 +14,16 @@ add_subdirectory(lib)
 add_subdirectory(keepalived)
 add_subdirectory(genhash)
 
-INSTALL(FILES keepalived/etc/keepalived/keepalived.master.conf 
-	keepalived/etc/keepalived/keepalived.slave.conf 
+INSTALL(FILES keepalived/etc/keepalived/keepalived.conf 
 	DESTINATION /etc/keepalived)
+
+INSTALL(FILES keepalived/etc/keepalived/backup.sh
+	keepalived/etc/keepalived/backup.sh
+	keepalived/etc/keepalived/fault.sh
+	keepalived/etc/keepalived/master.sh
+	keepalived/etc/keepalived/stop.sh
+	DESTINATION /etc/keepalived
+	PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
 
 INSTALL(PROGRAMS keepalived/etc/init.d/keepalived.ubuntu.init
 	DESTINATION /etc/init.d RENAME keepalived
